@@ -1,0 +1,29 @@
+{% extends 'template.html'%}
+
+{% block content %}
+
+<div class="container">
+    <div class="row" style="margin-top: 4vh;">
+        <div class="col-md-2 offset-md-8">
+            <button type="button" class="btn btn-primary form-control"
+            style="margin-top: 2vh;"
+            >Edit</button>
+        </div>
+        <div class="col-md-2">
+            <button type="button" class="btn btn-outline-success form-control"
+            style="margin-top: 2vh;"
+            >Edit with Copilot</button>
+        </div>
+    </div>
+    <div class="row" 
+    style="background-color: #A6F6FF; 
+    border-radius: 16px; 
+    box-shadow: inset 0 0 6px #6499E9;
+    padding: 4vh;
+    margin-top: 3VH;"
+    >
+        <div style="font-size: 2.4vh; text-align: justify;">{{ content|linebreaksbr }}</div>
+    </div>
+</div>
+
+{%endblock%}
