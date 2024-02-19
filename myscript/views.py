@@ -1,7 +1,7 @@
 from django.shortcuts import render,redirect
 import openai
 
-openai.api_key = "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"
+openai.api_key = "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"
 
 
 def home_page(req):
