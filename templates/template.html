@@ -14,10 +14,12 @@
 </head>
 
 <body style="background-color: #BEFFF7; font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;">
+    
     <!-- NAVBAR -->
     <nav class="navbar navbar-expand-lg" style="background-color: #9EDDFF; box-shadow: 0 0 12px #6499E9;">
         <div class="container-fluid">
-            <a class="navbar-brand" style="color:black; margin-left: 2vh;" href="{%url 'index' user_details.id%}"> MyScript!</a>
+            <a class="navbar-brand" style="color:black; margin-left: 2vh;" href="{%url 'index' user_details.id%}">
+                MyScript!</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation"
                 style="background-color: #A6F6FF; column-rule: white;">
@@ -25,12 +27,13 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                 <div class="d-flex offset-md-8">
-                    <div style="margin-right: 3vh; margin-top: 1vh; font-size: 2.6vh;">{{user_details.first_name}} {{user_details.last_name}}</div>
+                    <div style="margin-right: 3vh; margin-top: 1vh; font-size: 2.6vh;">{{user_details.first_name}}
+                        {{user_details.last_name}}</div>
                     <button type="button" class="btn btn-outline-primary" data-bs-toggle="modal"
-                        data-bs-target="#exampleModal" style="margin-right: 3vh;">
+                        data-bs-target="#scriptModal" style="margin-right: 3vh;">
                         create script
                     </button>
-                    <form action ="{%url 'logout' %}" method ="post">
+                    <form action="{%url 'logout' %}" method="post">
                         {% csrf_token %}
                         <button class="btn btn-outline-success" type="submit">logout</button>
                     </form>

@@ -8,7 +8,7 @@
 </style>
 
 <!-- modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="scriptModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
@@ -21,26 +21,13 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8 offset-md-2">
-                                <input type="text" name="title" 
-                                class="form-control" placeholder="Script title"
-                                value="karan and arjun" />
+                                <input type="text" name="title" class="form-control" placeholder="Script title" />
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="col-md-8 offset-md-2">
-                                <select name="language" class="form-control">
-                                    <option>select Language</option>
-                                    <option value="English">English</option>
-                                    <option value="Hindi" selected>Hindi</option>
-                                    <option value="Bengali">Bengali</option>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="row">
-                            <div class="col-md-8 offset-md-2">
-                                <textarea name="synopsis" class="form-control">karan fight with arjun</textarea>
+                                <textarea name="synopsis" class="form-control">type synopsis here...</textarea>
                             </div>
                         </div>
 
@@ -60,17 +47,16 @@
 
                         <div class="row">
                             <div class="col-md-8 offset-md-2">
-                                <textarea name="plot" class="form-control">karan and arjun figth with each other and arjun won the fight
-                                </textarea>
+                                <textarea name="plot" class="form-control" style="height: 20vh;">type plot... </textarea>
                             </div>
                         </div>
                     </div>
             </div>
-                    <div class="modal-footer">
-                        <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                        <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                </form>
+            <div class="modal-footer">
+                <button type="reset" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+            </form>
         </div>
     </div>
 </div>
@@ -79,11 +65,10 @@
 
 <div class="container">
     <div class="row">
-        {% if script_content is not None %}
-        
         {% for content in script_content %}
         <div class="col-md-4" style="margin-top: 5vh;">
-            <div class="card" style="width: 18rem; background:#6499E9; text-align:center; color:white; font-size:4vh; box-shadow:0 0 12px #6499E9; border-radius:18px;">
+            <div class="card"
+                style="width: 18rem; background:#6499E9; text-align:center; color:white; font-size:4vh; box-shadow:0 0 12px #6499E9; border-radius:18px;">
                 <a href="{% url 'myscript' content.id %}" style="text-decoration: none; color:white">
                     <div class="card-body">
                         <div class="card-title">{{content.title}}</div>
@@ -96,20 +81,15 @@
             </div>
         </div>
         {% endfor %}
-
-        {% else %}
-        <span style="color: black; font-size: 6vh; text-align: center; margin-top: 12vh;">Nothing!!</span>
-        {% endif %}
     </div>
-</div>
 
-<script>
-    let genre = document.getElementById("genre");
-    document.querySelector("#select-box").addEventListener('change', function () {
-        var selectedGenres = Array.from(this.selectedOptions).map(option => option.value);
-        genre.value += selectedGenres.join(', ') + ', ';
-    });
-</script>
+    <script>
+        let genre = document.getElementById("genre");
+        document.querySelector("#select-box").addEventListener('change', function () {
+            var selectedGenres = Array.from(this.selectedOptions).map(option => option.value);
+            genre.value += selectedGenres.join(', ') + ', ';
+        });
+    </script>
 
 
-{%endblock%}
+    {%endblock%}

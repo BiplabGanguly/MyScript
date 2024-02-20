@@ -10,5 +10,5 @@ class Scripts(models.Model):
     is_delete = models.BooleanField(default=False)
 
     def __str__(self) -> str:
-        return self.user.first_name
+        return self.title
 

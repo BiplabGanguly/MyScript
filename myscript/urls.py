@@ -21,11 +21,14 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',views.login_page,name = "login"),
+    path('signin/',views.sign_in,name = "signin"),
     path('post_login/',views.post_login_page,name="post_login"),
+    path('post_signin/',views.post_signin,name='post_signin'),
     path('index/<uid>/',views.home_page,name="index"),
     path('myscript/<sid>/',views.script_page,name='myscript'),
     path('script/<uid>/',views.post_script_page,name='script'),
     path('delete_script/<sid>/',views.delete_script,name="delete_script"),
+    path('edit_script/<sid>/',views.edit_content,name = "edit_script"),
+    path('edit_content_copilot/<sid>/',views.edit_content_copilot,name='edit_content_copilot'),
     path('logout/',views.log_out,name='logout'),
-    
 ]
