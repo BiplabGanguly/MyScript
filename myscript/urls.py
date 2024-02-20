@@ -20,7 +20,12 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/',views.home_page,name="index"),
-    path('script/',views.post_script_page,name='script'),
-    path('myscript/',views.script_page,name='myscript'),
+    path('',views.login_page,name = "login"),
+    path('post_login/',views.post_login_page,name="post_login"),
+    path('index/<uid>/',views.home_page,name="index"),
+    path('myscript/<sid>/',views.script_page,name='myscript'),
+    path('script/<uid>/',views.post_script_page,name='script'),
+    path('delete_script/<sid>/',views.delete_script,name="delete_script"),
+    path('logout/',views.log_out,name='logout'),
+    
 ]

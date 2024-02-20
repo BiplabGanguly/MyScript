@@ -16,7 +16,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <form action="{% url 'script' %}" method="post">
+                <form action="{% url 'script' user_details.id %}" method="post">
                     {% csrf_token %}
                     <div class="container">
                         <div class="row">
@@ -79,7 +79,27 @@
 
 <div class="container">
     <div class="row">
+        {% if script_content is not None %}
+        
+        {% for content in script_content %}
+        <div class="col-md-4" style="margin-top: 5vh;">
+            <div class="card" style="width: 18rem; background:#6499E9; text-align:center; color:white; font-size:4vh; box-shadow:0 0 12px #6499E9; border-radius:18px;">
+                <a href="{% url 'myscript' content.id %}" style="text-decoration: none; color:white">
+                    <div class="card-body">
+                        <div class="card-title">{{content.title}}</div>
+                        <form action="{% url 'delete_script' content.id %}" method="POST">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-outline-danger">Delete</button>
+                        </form>
+                    </div>
+                </a>
+            </div>
+        </div>
+        {% endfor %}
+
+        {% else %}
         <span style="color: black; font-size: 6vh; text-align: center; margin-top: 12vh;">Nothing!!</span>
+        {% endif %}
     </div>
 </div>
 
